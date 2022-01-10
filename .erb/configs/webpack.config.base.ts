@@ -2,10 +2,12 @@
  * Base webpack config used across other specific configs
  */
 
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+import path from 'path';
 import webpack from 'webpack';
-import webpackPaths from './webpack.paths';
 import { dependencies as externals } from '../../release/app/package.json';
 import WebpackConfig from './webpack.config';
+import webpackPaths from './webpack.paths';
 
 // https://github.com/electron-react-boilerplate/electron-react-boilerplate/pull/3052
 export default <WebpackConfig>{
@@ -43,11 +45,15 @@ export default <WebpackConfig>{
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
     modules: [webpackPaths.srcPath, 'node_modules'],
+    alias: {
+      'react': path.resolve("./node_modules/react")
+    }
   },
 
   plugins: [
     new webpack.EnvironmentPlugin({
       NODE_ENV: 'production',
     }),
+    new NodePolyfillPlugin(),
   ],
 };
