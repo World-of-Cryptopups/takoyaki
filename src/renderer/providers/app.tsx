@@ -5,7 +5,6 @@ import {
   ReactNode,
   SetStateAction,
   useContext,
-  useEffect,
   useState,
 } from 'react';
 import anchorLink from '../lib/anchor';
@@ -56,11 +55,9 @@ const AppProvider = ({ children }: AppProviderProps) => {
     setUser(session);
   };
 
-  useEffect(() => {
-    if (!user) {
-      login();
-    }
-  }, [user]);
+  if (!user) {
+    login();
+  }
 
   return (
     <AppProviderContext.Provider value={{ user, setUser, login }}>
