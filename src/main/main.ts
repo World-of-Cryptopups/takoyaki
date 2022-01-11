@@ -9,12 +9,11 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
-import { autoUpdater } from 'electron-updater';
+import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import log from 'electron-log';
-import MenuBuilder from './menu';
+import { autoUpdater } from 'electron-updater';
+import path from 'path';
+import 'regenerator-runtime/runtime';
 import { resolveHtmlPath } from './util';
 
 export default class AppUpdater {
@@ -98,8 +97,8 @@ const createWindow = async () => {
     mainWindow = null;
   });
 
-  const menuBuilder = new MenuBuilder(mainWindow);
-  menuBuilder.buildMenu();
+  // hide menu bar
+  mainWindow.setMenu(null);
 
   // Open urls in the user's browser
   mainWindow.webContents.on('new-window', (event, url) => {
