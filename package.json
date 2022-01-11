@@ -235,6 +235,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@fontsource/inter": "^4.5.1",
     "@headlessui/react": "^1.4.2",
     "anchor-link": "^3.3.5",
     "anchor-link-browser-transport": "^3.2.5",
