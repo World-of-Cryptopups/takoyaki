@@ -1,6 +1,6 @@
 const SidebarContainer = () => {
   return (
-    <div className="w-68 h-screen  bg-magnolia p-4">
+    <div className="w-68 z-20 h-screen fixed bg-gray-100 p-4">
       <div className="text-center">
         <h1 className="text-3xl font-black text-white bg-indigo-500 py-1 px-2 rounded-lg">
           t

@@ -1,12 +1,18 @@
+import { useAppProvider } from 'renderer/providers/app';
+
 const ContentHeader = () => {
+  const { user } = useAppProvider();
+
   return (
-    <div className="border-b border-magnolia bg-neutral-50">
+    <div className="fixed z-10 w-full border-b border-magnolia bg-gray-50">
       <div className="flex items-center justify-between py-4 px-6">
-        <div className="">
-          <h3 className="font-black text-raisin-black tracking-wide text-lg">
+        <div className="ml-20">
+          <h3 className="font-black text-gray-800 tracking-wide text-lg">
             DASHBOARD
           </h3>
-          <p className="text-neutral-600 text-sm ml-1">Hello, @5g2vm.wam</p>
+          <p className="text-neutral-600 text-sm ml-1">
+            Hello, @{String(user?.auth.actor)}
+          </p>
         </div>
 
         <div className="inline-flex items-center">
@@ -29,7 +35,7 @@ const ContentHeader = () => {
               />
             </svg>
             <span className="ml-1 text-xs tracking-wide font-bold">
-              5g2vm.wam
+              {String(user?.auth.actor)}
             </span>
           </button>
 

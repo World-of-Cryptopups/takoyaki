@@ -6,7 +6,7 @@ const ContentContainer = () => {
     <div className="w-full h-full">
       <ContentHeader />
 
-      <div className="p-12">
+      <div className="py-32 pl-32 pr-10">
         <DashboardPage />
       </div>
     </div>
