@@ -7,6 +7,7 @@ import {
   useContext,
   useState,
 } from 'react';
+import { CurrentUser } from 'renderer/typings/user';
 import anchorLink from '../lib/anchor';
 import { dApp } from '../lib/config';
 
@@ -18,6 +19,7 @@ interface AppProviderContextProps {
   user: LinkSession | null;
   setUser: Dispatch<SetStateAction<LinkSession | null>>;
   login: () => Promise<void>;
+  account?: CurrentUser;
 }
 
 const AppProviderContext = createContext<AppProviderContextProps>({
@@ -26,7 +28,17 @@ const AppProviderContext = createContext<AppProviderContextProps>({
   login: async () => undefined,
 });
 
+const getCurrentUser = () => {
+  if (typeof window === 'undefined') return undefined;
+
+  const data = window.localStorage.getItem('current-user');
+  if (!data) return undefined;
+
+  return JSON.parse(data) as CurrentUser;
+};
+
 const AppProvider = ({ children }: AppProviderProps) => {
+  const [account, setAccount] = useState(getCurrentUser());
   const [user, setUser] = useState<LinkSession | null>(null);
 
   const login = async () => {
@@ -52,15 +64,19 @@ const AppProvider = ({ children }: AppProviderProps) => {
 
     if (!session) return;
 
+    const currentAccount: CurrentUser = {
+      wallet: session.auth.actor.toString(),
+      permission: session.auth.permission.toString(),
+    };
+
     setUser(session);
+    setAccount(currentAccount);
+
+    window.localStorage.setItem('current-user', JSON.stringify(currentAccount));
   };
 
-  if (!user) {
-    login();
-  }
-
   return (
-    <AppProviderContext.Provider value={{ user, setUser, login }}>
+    <AppProviderContext.Provider value={{ user, setUser, login, account }}>
       {children}
     </AppProviderContext.Provider>
   );
