@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
-import { CurrentUser } from 'renderer/typings/user';
 import anchorLink, { AnchorLogo } from '../../lib/anchor';
 import { dApp } from '../../lib/config';
 import { useAppProvider } from '../../providers/app';
+import { CurrentUser } from '../../typings/user';
 
 const AuthPage = () => {
   const { login, user, setUser, account } = useAppProvider();

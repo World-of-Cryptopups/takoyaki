@@ -1,4 +1,4 @@
-import useFetchWaxPrice from 'renderer/lib/hooks/useFetchWaxPrice';
+import useFetchWaxPrice from '../../lib/hooks/useFetchWaxPrice';
 
 const DashboardWaxPrice = () => {
   const price = useFetchWaxPrice();

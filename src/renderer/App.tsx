@@ -1,5 +1,7 @@
 import { UseEOSProvider } from '@cryptopuppie/useeoschain';
 import { MemoryRouter as Router, Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AppContainer from './pages/app';
 import AuthPage from './pages/auth/page';
@@ -16,6 +18,13 @@ export default function App() {
           </Routes>
         </Router>
       </AppProvider>
+
+      <ToastContainer
+        theme="colored"
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        className="text-sm"
+      />
     </UseEOSProvider>
   );
 }

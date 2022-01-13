@@ -1,5 +1,5 @@
 import { useGetCurrencyBalance } from '@cryptopuppie/useeoschain';
-import { useAppProvider } from 'renderer/providers/app';
+import { useAppProvider } from '../../providers/app';
 
 const parseBalance = (bal: string) => {
   const x = bal.split(' ');

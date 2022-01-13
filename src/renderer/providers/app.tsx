@@ -7,9 +7,9 @@ import {
   useContext,
   useState,
 } from 'react';
-import { CurrentUser } from 'renderer/typings/user';
 import anchorLink from '../lib/anchor';
 import { dApp } from '../lib/config';
+import { CurrentUser } from '../typings/user';
 
 interface AppProviderProps {
   children: ReactNode;
