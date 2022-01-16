@@ -230,7 +230,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@cryptopuppie/useeoschain": "^0.1.2",
+    "@cryptopuppie/useeoschain": "^0.2.0",
     "@fontsource/inter": "^4.5.1",
     "@headlessui/react": "^1.4.2",
     "anchor-link": "^3.3.5",

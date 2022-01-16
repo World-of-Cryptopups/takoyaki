@@ -13,7 +13,7 @@ interface ManageRamContextProps {
 const ManageRamContext = createContext<ManageRamContextProps>({});
 
 const ManageRamProvider = ({ children }: ManageRamProviderProps) => {
-  const data = useGetTableRows<GETRAM>({
+  const { data } = useGetTableRows<GETRAM>({
     code: 'eosio',
     scope: 'eosio',
     table: 'rammarket',

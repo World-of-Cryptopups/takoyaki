@@ -15,7 +15,7 @@ function getPercentage(used: number, max: number) {
 
 const DashboardAccStatsWax = () => {
   const { account } = useAppProvider();
-  const data = useGetAccount(
+  const { data } = useGetAccount(
     account ? { account_name: account?.wallet } : undefined
   );
 

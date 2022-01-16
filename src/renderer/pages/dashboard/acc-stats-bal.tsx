@@ -10,7 +10,7 @@ const parseBalance = (bal: string) => {
 
 const DashboardAccStatsBalance = () => {
   const { user } = useAppProvider();
-  const data = useGetCurrencyBalance(
+  const { data } = useGetCurrencyBalance(
     user
       ? { account: user.auth.actor.toString(), code: 'eosio.token' }
       : undefined
