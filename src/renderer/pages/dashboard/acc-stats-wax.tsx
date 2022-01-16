@@ -12,7 +12,7 @@ function getPercentage(used: number, max: number) {
 
   if (!x) return '-';
 
-  return Number(x[0]) * 100;
+  return Math.ceil(Number(x[0]) * 100);
 }
 
 const DashboardAccStatsWax = () => {
