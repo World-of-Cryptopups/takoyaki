@@ -1,7 +1,8 @@
 import { useGetAccount } from '@cryptopuppie/useeoschain';
 import filesize from 'file-size';
 import prettyMilliseconds from 'pretty-ms';
-import { useAppProvider } from 'renderer/providers/app';
+import { useAppProvider } from '../../providers/app';
+import ManageRamModal from './manage/ram';
 
 function getPercentage(used: number, max: number) {
   const v = used / max;
@@ -9,7 +10,7 @@ function getPercentage(used: number, max: number) {
 
   if (!x) return '-';
 
-  return x[0];
+  return Number(x[0]) * 100;
 }
 
 const DashboardAccStatsWax = () => {
@@ -40,7 +41,11 @@ const DashboardAccStatsWax = () => {
   return (
     <>
       <div className="bg-gray-100 border-indigo-300 border-2 py-4 px-6 rounded-lg">
-        <p className="text-indigo-500 font-medium mb-2">RAM</p>
+        <div className="flex items-center justify-between">
+          <p className="text-indigo-500 font-medium mb-2">RAM</p>
+
+          <ManageRamModal ram={ram} percentage={percentage.ram} />
+        </div>
 
         <p className="text-sm mb-0.5 text-gray-600">
           {filesize(ram.usage).human()} / {filesize(ram.quota).human()}
