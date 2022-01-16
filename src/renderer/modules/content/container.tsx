@@ -1,4 +1,4 @@
-import DashboardPage from '../../pages/dashboard/page';
+import { RenderRoutes } from 'inp-router';
 import ContentHeader from './header';
 
 const ContentContainer = () => {
@@ -7,7 +7,7 @@ const ContentContainer = () => {
       <ContentHeader />
 
       <div className="py-32 pl-32 pr-10">
-        <DashboardPage />
+        <RenderRoutes />
       </div>
     </div>
   );
