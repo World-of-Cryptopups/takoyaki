@@ -2,6 +2,8 @@ import { useGetAccount } from '@cryptopuppie/useeoschain';
 import filesize from 'file-size';
 import prettyMilliseconds from 'pretty-ms';
 import { useAppProvider } from '../../providers/app';
+import ManageCpuModal from './manage/cpu';
+import ManageNetModal from './manage/net';
 import ManageRamModal from './manage/ram';
 
 function getPercentage(used: number, max: number) {
@@ -64,7 +66,11 @@ const DashboardAccStatsWax = () => {
       </div>
 
       <div className="bg-gray-100 border-indigo-300 border-2 py-4 px-6 rounded-lg">
-        <p className="text-indigo-500 font-medium mb-2">CPU</p>
+        <div className="flex items-center justify-between">
+          <p className="text-indigo-500 font-medium mb-2">CPU</p>
+
+          <ManageCpuModal cpu={cpu} percentage={percentage.cpu} />
+        </div>
 
         <p className="text-sm mb-0.5 text-gray-600">
           {prettyMilliseconds(cpu.usage, { millisecondsDecimalDigits: 2 })} /{' '}
@@ -83,7 +89,11 @@ const DashboardAccStatsWax = () => {
       </div>
 
       <div className="bg-gray-100 border-indigo-300 border-2 py-4 px-6 rounded-lg">
-        <p className="text-indigo-500 font-medium mb-2">Network</p>
+        <div className="flex items-center justify-between">
+          <p className="text-indigo-500 font-medium mb-2">Network</p>
+
+          <ManageNetModal net={net} percentage={percentage.net} />
+        </div>
 
         <p className="text-sm mb-0.5 text-gray-600">
           {filesize(net.usage).human()} / {filesize(net.quota).human()}
