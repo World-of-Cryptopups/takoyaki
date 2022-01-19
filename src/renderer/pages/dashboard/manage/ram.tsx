@@ -1,7 +1,7 @@
 import { Dialog, Tab } from '@headlessui/react';
 import filesize from 'file-size';
 import { useState } from 'react';
-import BaseModal from 'renderer/components/modal';
+import BaseModal from '../../../components/modal';
 import ManageRamModalBuyAction from './ram/buy';
 import ManageRamProvider from './ram/provider';
 import ManageRamModalSellAction from './ram/sell';

@@ -8,11 +8,8 @@ import ManageRamModal from './manage/ram';
 
 function getPercentage(used: number, max: number) {
   const v = used / max;
-  const x = v.toString().match(/^-?\d+(?:\.\d{0,2})?/);
 
-  if (!x) return '-';
-
-  return Math.ceil(Number(x[0]) * 100);
+  return Math.ceil(v * 100);
 }
 
 const DashboardAccStatsWax = () => {
@@ -90,11 +87,12 @@ const DashboardAccStatsWax = () => {
 
       <div className="bg-gray-100 border-indigo-300 border-2 py-4 px-6 rounded-lg">
         <div className="flex items-center justify-between">
-          <p className="text-indigo-500 font-medium mb-2">Network</p>
+          <p className="text-indigo-500 font-medium mb-2">
+            Network {percentage.net}
+          </p>
 
           <ManageNetModal net={net} percentage={percentage.net} />
         </div>
-
         <p className="text-sm mb-0.5 text-gray-600">
           {filesize(net.usage).human()} / {filesize(net.quota).human()}
         </p>
