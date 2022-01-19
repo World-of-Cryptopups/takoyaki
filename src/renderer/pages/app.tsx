@@ -11,14 +11,14 @@ import SettingsPage from './settings/page';
 import TransactionsPage from './transactions/page';
 
 const AppContainer = () => {
-  const { user } = useAppProvider();
+  const { account } = useAppProvider();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
+    if (!account) {
       navigate('auth');
     }
-  }, [user, navigate]);
+  }, [account, navigate]);
 
   return (
     <INPRouter

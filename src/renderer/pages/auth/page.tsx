@@ -27,7 +27,9 @@ const AuthPage = () => {
       navigate('/');
     };
 
-    if (!user && account) {
+    if (!account) return;
+
+    if (!user) {
       restoreSession(account);
     }
   }, [account, navigate, setUser, user]);
@@ -35,8 +37,6 @@ const AuthPage = () => {
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-center p-20 shadow-2xl rounded-lg bg-white">
-        {JSON.stringify(account)}
-        {user?.auth.toString()}
         <h3 className="text-indigo-500 font-black text-3xl">takoyaki</h3>
         <p className="text-gray-800">login with your wax wallet</p>
 
