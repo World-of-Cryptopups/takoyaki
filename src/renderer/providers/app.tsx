@@ -45,6 +45,11 @@ const AppProvider = ({ children }: AppProviderProps) => {
   const [account, setAccount] = useState(getCurrentUser());
   const [user, setUser] = useState<LinkSession | null>(null);
 
+  const anchor = anchorLink(
+    'https://waxtestnet.greymass.com',
+    'f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12'
+  );
+
   const logoutCurrent = () => {
     setAccount(undefined);
 
@@ -52,11 +57,6 @@ const AppProvider = ({ children }: AppProviderProps) => {
   };
 
   const restoreAccount = async (acc: CurrentUser) => {
-    const anchor = anchorLink(
-      'https://waxtestnet.greymass.com',
-      'f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12'
-    );
-
     const session = await anchor.restoreSession(dApp, {
       actor: acc.wallet,
       permission: acc.permission,
@@ -70,11 +70,6 @@ const AppProvider = ({ children }: AppProviderProps) => {
 
   const login = async () => {
     let session: LinkSession | null = null;
-
-    const anchor = anchorLink(
-      'https://waxtestnet.greymass.com',
-      'f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12'
-    );
 
     // NOTE: since we are allowing multiple accounts, we should not restore previous accounts
 
