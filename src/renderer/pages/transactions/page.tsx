@@ -1,5 +1,12 @@
+import { UseHyperionProvider } from '@cryptopuppie/useeoshyperion';
+import MyTransactions from './transactions';
+
 const TransactionsPage = () => {
-  return <div>Transactions</div>;
+  return (
+    <UseHyperionProvider endpoint="https://testnet.waxsweden.org">
+      <MyTransactions />
+    </UseHyperionProvider>
+  );
 };
 
 export default TransactionsPage;

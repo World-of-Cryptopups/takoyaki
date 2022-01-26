@@ -232,7 +232,7 @@
   "dependencies": {
     "@cryptopuppie/useatomicassets": "^0.1.0",
     "@cryptopuppie/useeoschain": "^0.2.0",
-    "@cryptopuppie/useeoshyperion": "^0.1.1",
+    "@cryptopuppie/useeoshyperion": "^0.1.2",
     "@fontsource/inter": "^4.5.1",
     "@headlessui/react": "^1.4.2",
     "anchor-link": "^3.3.5",
