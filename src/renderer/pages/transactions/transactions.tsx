@@ -1,6 +1,6 @@
 import { useGetActions } from '@cryptopuppie/useeoshyperion';
 import { Disclosure } from '@headlessui/react';
-import { useAppProvider } from 'renderer/providers/app';
+import { useAppProvider } from '../../providers/app';
 
 const MyTransactions = () => {
   const { account } = useAppProvider();

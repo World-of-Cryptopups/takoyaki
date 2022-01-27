@@ -1,5 +1,5 @@
 import { useGetAssets } from '@cryptopuppie/useatomicassets';
-import { useAppProvider } from 'renderer/providers/app';
+import { useAppProvider } from '../../providers/app';
 
 const MyNFTAssets = () => {
   const { account } = useAppProvider();
