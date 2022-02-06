@@ -1,5 +1,6 @@
 import { useGetAssets } from '@cryptopuppie/useatomicassets';
 import { useAppProvider } from '../../providers/app';
+import ListAsset from './list-asset';
 
 const MyNFTAssets = () => {
   const { account } = useAppProvider();
@@ -36,26 +37,7 @@ const MyNFTAssets = () => {
               )}
             </p>
 
-            {i.immutable_data.video ? (
-              <video
-                src={`https://ipfs.io/ipfs/${i.immutable_data.video}`}
-                height="300"
-                width="200"
-                autoPlay
-                loop
-                preload=""
-                className="object-contain"
-                title={i.immutable_data.name}
-              >
-                <track kind="captions" />
-              </video>
-            ) : (
-              <img
-                src={`https://ipfs.io/ipfs/${i.data.img}`}
-                alt={i.name}
-                className="object-contain"
-              />
-            )}
+            <ListAsset asset={i} />
 
             <p className="absolute w-full -bottom-3 text-center bg-gray-200 text-sm py-2 rounded-b-lg px-3 truncate font-medium tracking-wide text-indigo-500">
               {i.name}
