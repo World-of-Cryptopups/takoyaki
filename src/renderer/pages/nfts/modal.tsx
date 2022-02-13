@@ -69,7 +69,15 @@ const ViewNFTAssetModal = () => {
         </div>
 
         <p className="absolute -top-5 -right-5 text-sm text-gray-600 font-medium">
-          #{asset?.asset_id}
+          <a
+            href={`https://wax-test.atomichub.io/explorer/asset/${asset?.asset_id}`}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:underline"
+            title="View NFT on AtomicHub.io"
+          >
+            #{asset?.asset_id}
+          </a>
         </p>
 
         <div className="w-2/5">
