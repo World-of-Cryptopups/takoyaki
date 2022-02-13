@@ -60,10 +60,38 @@ const MyTransactions = () => {
                   </div>
                 </Disclosure.Button>
                 <Disclosure.Panel className="px-8 pt-4 pb-6 text-sm rounded-b-lg bg-gray-100">
-                  <div className="flex items-center justify-between">
-                    <p className="text-gray-700" title="Block number">
-                      BLOCK NUMBER: <strong>#{i.block_num}</strong>
-                    </p>
+                  <div className="flex justify-between">
+                    <div>
+                      <p className="text-gray-700" title="Transaction ID">
+                        TRANSACTION:{' '}
+                        <strong>
+                          <a
+                            href={`https://wax-test.bloks.io/transaction/${i.trx_id}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:underline"
+                            title="View transaction details on Bloks.io"
+                          >
+                            {i.trx_id}
+                          </a>
+                        </strong>
+                      </p>
+
+                      <p className="text-gray-700 mt-1" title="Block number">
+                        BLOCK NUMBER:{' '}
+                        <strong>
+                          <a
+                            href={`https://wax-test.bloks.io/block/${i.block_num}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:underline"
+                            title="View block details on Bloks.io"
+                          >
+                            #{i.block_num}
+                          </a>
+                        </strong>
+                      </p>
+                    </div>
 
                     <p className="text-gray-600 text-xs">
                       {new Date(i['@timestamp']).toString()}
