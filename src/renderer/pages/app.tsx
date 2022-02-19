@@ -7,7 +7,6 @@ import SidebarContainer from '../modules/sidebar/container';
 import { useAppProvider } from '../providers/app';
 import DashboardPage from './dashboard/page';
 import NFTsPage from './nfts/page';
-import SettingsPage from './settings/page';
 import TransactionsPage from './transactions/page';
 
 const AppContainer = () => {
@@ -25,7 +24,6 @@ const AppContainer = () => {
       defaultElement="dashboard"
       routes={{
         dashboard: DashboardPage,
-        settings: SettingsPage,
         nfts: NFTsPage,
         transactions: TransactionsPage,
       }}

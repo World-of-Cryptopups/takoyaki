@@ -34,7 +34,7 @@ const UserManagementModal = () => {
           />
         </svg>
         <span className="ml-1 text-xs tracking-wide font-bold">
-          {String(user?.auth.actor)}
+          {user?.auth.actor.toString()}@{user?.auth.permission.toString()}
         </span>
       </button>
 

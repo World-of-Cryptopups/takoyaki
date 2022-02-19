@@ -9,6 +9,7 @@ import {
 } from 'react';
 import anchorLink from '../lib/anchor';
 import { dApp } from '../lib/config';
+import { useSettings } from '../modules/settings/provider';
 import { CurrentUser } from '../typings/user';
 
 interface AppProviderProps {
@@ -42,13 +43,12 @@ const getCurrentUser = () => {
 };
 
 const AppProvider = ({ children }: AppProviderProps) => {
+  const { chain, chainId } = useSettings();
+
   const [account, setAccount] = useState(getCurrentUser());
   const [user, setUser] = useState<LinkSession | null>(null);
 
-  const anchor = anchorLink(
-    'https://waxtestnet.greymass.com',
-    'f16b1833c747c43682f4386fca9cbb327929334a762755ebec17f6f23c9b8a12'
-  );
+  const anchor = anchorLink(chain, chainId);
 
   const logoutCurrent = () => {
     setAccount(undefined);

@@ -26,8 +26,12 @@ const UserManagementModalContainer = () => {
     if (!selected || !account) return;
 
     const currentAccount = selected?.actor.toString();
+    const currentPermission = selected.permission.toString();
 
-    if (account.wallet === currentAccount) {
+    if (
+      account.wallet === currentAccount &&
+      account.permission === currentPermission
+    ) {
       toast.warn('You are currently in this account.');
       return;
     }
@@ -55,7 +59,7 @@ const UserManagementModalContainer = () => {
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full py-4 pl-3 pr-10 text-left bg-indigo-50 border-2 border-indigo-300 rounded-lg shadow-xl font-medium cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-indigo-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm">
               <span className="block truncate">
-                {selected?.actor.toString()}
+                {selected?.actor.toString()}@{selected?.permission.toString()}
               </span>
               <span className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
                 <svg
@@ -101,7 +105,8 @@ const UserManagementModalContainer = () => {
                             select ? 'font-medium' : 'font-normal'
                           } block truncate`}
                         >
-                          {sess.auth.actor.toString()}
+                          {sess.auth.actor.toString()}@
+                          {sess.auth.permission.toString()}
                         </span>
                         {select ? (
                           <span

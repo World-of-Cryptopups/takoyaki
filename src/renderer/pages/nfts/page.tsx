@@ -1,9 +1,12 @@
 import { UseAtomicAssetsProvider } from '@cryptopuppie/useatomicassets';
+import { useSettings } from '../../modules/settings/provider';
 import MyNFTAssets from './assets';
 
 const NFTsPage = () => {
+  const { atomicassets } = useSettings();
+
   return (
-    <UseAtomicAssetsProvider endpoint="https://test.wax.api.atomicassets.io">
+    <UseAtomicAssetsProvider endpoint={atomicassets}>
       <div>
         <MyNFTAssets />
       </div>

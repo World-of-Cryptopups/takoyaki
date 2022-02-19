@@ -1,9 +1,12 @@
 import { ChainId, PermissionLevel } from 'anchor-link';
 import { useEffect, useState } from 'react';
+import { useSettings } from '../../modules/settings/provider';
 import { useAppProvider } from '../../providers/app';
 import { dApp } from '../config';
 
 const useListSessions = () => {
+  const { chainId } = useSettings();
+
   const { user } = useAppProvider();
   const [session, setSession] = useState<
     {
@@ -16,13 +19,15 @@ const useListSessions = () => {
     if (!user) return;
 
     const list = async () => {
-      const sess = await user.link.listSessions(dApp);
+      let sess = await user.link.listSessions(dApp);
+
+      sess = sess.filter((s) => s.chainId.toString() === chainId);
 
       setSession(sess);
     };
 
     list();
-  }, [user]);
+  }, [chainId, user]);
 
   return session;
 };

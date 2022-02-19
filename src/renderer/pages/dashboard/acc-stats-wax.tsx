@@ -87,9 +87,7 @@ const DashboardAccStatsWax = () => {
 
       <div className="bg-gray-100 border-indigo-300 border-2 py-4 px-6 rounded-lg">
         <div className="flex items-center justify-between">
-          <p className="text-indigo-500 font-medium mb-2">
-            Network {percentage.net}
-          </p>
+          <p className="text-indigo-500 font-medium mb-2">Network</p>
 
           <ManageNetModal net={net} percentage={percentage.net} />
         </div>

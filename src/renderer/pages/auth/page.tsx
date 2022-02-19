@@ -4,6 +4,7 @@ import anchorLink, { AnchorLogo } from '../../lib/anchor';
 import { dApp } from '../../lib/config';
 import { useAppProvider } from '../../providers/app';
 import { CurrentUser } from '../../typings/user';
+import SettingsButton from './settings/button';
 
 const AuthPage = () => {
   const { login, user, setUser, account } = useAppProvider();
@@ -40,7 +41,7 @@ const AuthPage = () => {
         <h3 className="text-indigo-500 font-black text-3xl">takoyaki</h3>
         <p className="text-gray-800">login with your wax wallet</p>
 
-        <div className="mt-6">
+        <div className="my-6">
           <button
             onClick={async () => {
               await login();
@@ -54,6 +55,8 @@ const AuthPage = () => {
             login with anchor
           </button>
         </div>
+
+        <SettingsButton />
       </div>
     </div>
   );
