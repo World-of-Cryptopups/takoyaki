@@ -8,6 +8,7 @@ const TransferModalForm = () => {
   const { closeModal } = useModal();
 
   const inputAccount = useRef<HTMLInputElement>(null);
+  const inputMemo = useRef<HTMLInputElement>(null);
   const inputAmount = useRef<HTMLInputElement>(null);
 
   const transfer = async () => {
@@ -16,6 +17,7 @@ const TransferModalForm = () => {
     }
 
     const account = inputAccount.current?.value ?? '';
+    const memo = inputMemo.current?.value ?? '';
     const amount = inputAmount.current?.valueAsNumber ?? 0;
 
     if (account === '') {
@@ -42,7 +44,7 @@ const TransferModalForm = () => {
             from: userAccount.wallet,
             to: account,
             quantity: String(`${amount.toFixed(8)} WAX`),
-            memo: '',
+            memo,
           },
         },
       })
@@ -67,10 +69,23 @@ const TransferModalForm = () => {
             type="text"
             name="account"
             ref={inputAccount}
-            className="py-4 px-6 rounded-lg border text-gray-800"
+            className="py-3 px-6 rounded-lg border text-gray-800"
             placeholder="Account / wallet to transfer token"
           />
         </div>
+
+        <div className="flex flex-col my-2">
+          <span className="mb-1 text-gray-600 uppercase text-sm">Memo</span>
+          <input
+            type="text"
+            name="memo"
+            ref={inputMemo}
+            className="py-3 px-6 rounded-lg border text-gray-800"
+            placeholder="Memo"
+          />
+        </div>
+
+        <hr className="my-4" />
 
         <div className="flex flex-col my-2">
           <span className="mb-1 text-gray-600 uppercase text-sm">Amount</span>
