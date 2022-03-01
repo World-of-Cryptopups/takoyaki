@@ -11,9 +11,13 @@ const SidebarContainer = () => {
           t
         </h1>
 
-        <small className="text-xs bg-orange-500 text-white p-1 rounded-md">
-          {testnet ? 'testnet' : <></>}
-        </small>
+        {testnet ? (
+          <small className="text-xs bg-orange-500 text-white p-1 rounded-md">
+            testnet
+          </small>
+        ) : (
+          <></>
+        )}
       </div>
 
       <ul className="mt-6">
