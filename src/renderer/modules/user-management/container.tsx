@@ -53,7 +53,7 @@ const UserManagementModalContainer = () => {
   }, [current, selected]);
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 z-50">
       <div className="flex flex-col my-2">
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
@@ -83,7 +83,7 @@ const UserManagementModalContainer = () => {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50">
+              <Listbox.Options className="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm h-28">
                 {sessions.map((sess, index) => (
                   <Listbox.Option
                     // eslint-disable-next-line react/no-array-index-key
