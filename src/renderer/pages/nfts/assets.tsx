@@ -15,9 +15,13 @@ const MyNFTAssets = () => {
     );
   }
 
+  if (!data) {
+    return <p className="text-sm text-gray-700">loading...</p>;
+  }
+
   return (
     <ul className="grid grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-12">
-      {data ? (
+      {data.length > 0 ? (
         data.map((i, index) => (
           <li
             // eslint-disable-next-line react/no-array-index-key
@@ -45,7 +49,7 @@ const MyNFTAssets = () => {
           </li>
         ))
       ) : (
-        <p className="text-sm text-gray-700">loading...</p>
+        <p className="text-sm text-gray-600">nothing to show here... (- _ -)</p>
       )}
     </ul>
   );

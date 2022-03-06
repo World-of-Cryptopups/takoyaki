@@ -12,7 +12,7 @@ const ContentHeader = () => {
       title: 'Dashboard',
       description: `Hello, @${String(user?.auth.actor)}`,
     },
-    nfts: { title: 'My NFTs', description: 'My NFT Assets' },
+    nfts: { title: 'My NFTs', description: 'My NFT Assets (atomicassets)' },
     transactions: {
       title: 'My Transactions',
       description: 'View my wallet transactions',

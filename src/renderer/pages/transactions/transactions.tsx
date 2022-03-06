@@ -14,9 +14,13 @@ const MyTransactions = () => {
     );
   }
 
+  if (!data) {
+    return <p className="text-sm text-gray-700">loading...</p>;
+  }
+
   return (
     <ul>
-      {data ? (
+      {data.actions.length > 0 ? (
         data.actions.map((i, index) => (
           <Disclosure
             as="li"
@@ -139,7 +143,7 @@ const MyTransactions = () => {
           </Disclosure>
         ))
       ) : (
-        <p className="text-sm text-gray-700">loading...</p>
+        <p className="text-sm text-gray-600">nothing to show here... (- _ -)</p>
       )}
     </ul>
   );
