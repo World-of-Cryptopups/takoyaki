@@ -19,6 +19,10 @@ const AppContainer = () => {
     }
   }, [account, navigate, user]);
 
+  if (!account || !user) {
+    return <></>;
+  }
+
   return (
     <INPRouter
       defaultElement="dashboard"

@@ -7,6 +7,7 @@ import {
   useContext,
   useState,
 } from 'react';
+import { toast } from 'react-toastify';
 import anchorLink from '../lib/anchor';
 import { dApp } from '../lib/config';
 import { useSettings } from '../modules/settings/provider';
@@ -77,8 +78,8 @@ const AppProvider = ({ children }: AppProviderProps) => {
       const sess = await anchor.login(dApp);
       session = sess.session;
     } catch (e) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      throw new Error(e as any);
+      toast.error(String(e)); // show error in toast
+      return;
     }
 
     if (!session) return;
